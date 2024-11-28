@@ -7,9 +7,9 @@ on:
   workflow_dispatch:
     inputs:
       FRIDA_VERSION:
-        description: 'frida version'
+        description: 'nuget version'
         required: true
-        default: ''
+        default: '1.0.1'
 
 
 jobs:
