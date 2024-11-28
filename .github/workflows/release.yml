@@ -4,10 +4,12 @@
 name: .NET
 
 on:
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+  workflow_dispatch:
+    inputs:
+      FRIDA_VERSION:
+        description: 'frida version'
+        required: true
+        default: ''
 
 jobs:
   build:
@@ -28,5 +30,5 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: nuget push
-      run: dotnet nuget push './aadog.PInvoke.Base/bin/Debug/aadog.PInvoke.Base.1.0.0.nupkg' --api-key ${{ secrets.NUGETAPIKEY }} --source https://api.nuget.org/v3/index.json
+      run: dotnet nuget push './aadog.PInvoke.Base/bin/Debug/aadog.PInvoke.Base.${{ github.event.inputs.FRIDA_VERSION }}.nupkg' --api-key ${{ secrets.NUGETAPIKEY }} --source https://api.nuget.org/v3/index.json
 
