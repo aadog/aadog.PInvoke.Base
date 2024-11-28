@@ -28,5 +28,5 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: nuget push
-      run: dotnet nuget push './aadog.PInvoke.Base/bin/Debug/PInvoke.Base.1.0.0.nupkg' --api-key ${{ secrets.NUGETAPIKEY }} --source https://api.nuget.org/v3/index.json
+      run: dotnet nuget push './aadog.PInvoke.Base/bin/Debug/aadog.PInvoke.Base.1.0.0.nupkg' --api-key ${{ secrets.NUGETAPIKEY }} --source https://api.nuget.org/v3/index.json
 
